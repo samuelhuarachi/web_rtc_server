@@ -28,6 +28,14 @@ http.listen(port, function () {
 
 
 
+io.on("connection", (socket) => {
+
+  socket.on("receive_client", async () => {
+    
+    socket.broadcast.emit("msg", "client send test message from server");
+  })
+})
+
 
 
 
